@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shapcpm"
+version = "1.0.0"
+description = "Efficient Calculation of Shapley Values in Critical Path Method (CPM) Networks for Concurrent Delay Analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Stanislaw Swierc", email = "stansw@meta.com" },
+]
+keywords = ["shapley", "cpm", "critical-path-method", "concurrent-delay-analysis", "scheduling"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "networkx>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "ruff>=0.5",
+    "black>=24",
+]
+notebooks = [
+    "jupyterlab>=4",
+]
+
+[project.urls]
+Homepage = "https://github.com/facebookresearch/shapcpm"
+Repository = "https://github.com/facebookresearch/shapcpm"
+Issues = "https://github.com/facebookresearch/shapcpm/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shapcpm"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/shapcpm",
+    "tests",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
