@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapley Value Tetris Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="controls">
+            <div class="control-group">
+                <label for="seed">Seed:</label>
+                <input type="number" id="seed" value="655293" min="0">
+            </div>
+            <div class="control-group">
+                <label for="width">Width:</label>
+                <input type="range" id="width" min="4" max="10" value="6">
+                <span id="width-value">6</span>
+            </div>
+            <div class="control-group">
+                <label for="iterations">Iterations:</label>
+                <input type="range" id="iterations" min="10" max="500" value="30">
+                <span id="iterations-value">30</span>
+            </div>
+            <div class="control-group">
+                <label for="speed">Delay (ms):</label>
+                <input type="range" id="speed" min="0" max="500" value="50">
+                <span id="speed-value">50</span>
+            </div>
+            <button id="reset-btn">Reset</button>
+            <button id="new-board-btn">New Board</button>
+            <button id="step-btn">Step</button>
+            <button id="run-btn">Run Simulation</button>
+        </header>
+
+        <main class="visualization">
+            <section class="panel">
+                <h2>Monte Carlo Sim.</h2>
+                <p class="algo-desc">&nbsp;</p>
+                <p class="sum-display">Height: <span id="board-height">0</span> | Iter: <span id="current-iteration">0</span>/<span id="total-iterations">0</span></p>
+                <div class="board-container">
+                    <canvas id="board-canvas" width="300" height="600"></canvas>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="algo-title" title="Averages each piece's contribution across all possible removal orders. Gives fair credit but removing any single piece may not achieve the full attributed value. The sum always equals total height.">Shapley Values</h2>
+                <p class="algo-desc">Fair blame, individual removal varies</p>
+                <p class="sum-display">Σ = <span id="sum-shapley">0</span></p>
+                <div class="board-container">
+                    <canvas id="shapley-canvas" width="300" height="600"></canvas>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="algo-title" title="Each piece's height impact if removed alone from the full board. Removing any highlighted piece guarantees that exact height reduction. May miss pieces that only matter after others are removed.">Critical Path Drag</h2>
+                <p class="algo-desc">Guaranteed impact,<br>may miss opportunities</p>
+                <p class="sum-display">Σ = <span id="sum-marginal">0</span></p>
+                <div class="board-container">
+                    <canvas id="marginal-canvas" width="300" height="600"></canvas>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="algo-title" title="The vertical chain of pieces from top to bottom that determines height. Every piece on this path matters, but improving one by itself does not guarantee any impact. The sum always equals total height.">Critical Path</h2>
+                <p class="algo-desc">Definitely relevant, fractional wins</p>
+                <p class="sum-display">Σ = <span id="sum-critical">0</span></p>
+                <div class="board-container">
+                    <canvas id="critical-canvas" width="300" height="600"></canvas>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="algo-title" title="Each row distributes 1 unit of blame equally among all distinct pieces present in that row. A piece's total value is the sum of its fractional shares. The sum always equals total height.">Uniform</h2>
+                <p class="algo-desc">Equal blame per row, sums to height</p>
+                <p class="sum-display">Σ = <span id="sum-uniform">0</span></p>
+                <div class="board-container">
+                    <canvas id="uniform-canvas" width="300" height="600"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/board.js"></script>
+    <script src="js/simulation.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
