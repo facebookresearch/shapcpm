@@ -30,6 +30,13 @@ The clip below shows the Monte Carlo solver in action on a 5-activity CPM networ
 
 https://github.com/user-attachments/assets/a9232231-a7c7-4ee8-9ecc-824019e7c4cc
 
+## Demo
+The algorithm can be explained using the analogy of allocating blame for a lost Tetris game to individual blocks. Although a Tetris board differs from a CPM network, dependencies between blocks enable the application of the same Monte Carlo simulation to allocate blame using the Shapley Value approach. The following demo illustrates the simulation and compares its results against other standard allocation methods, including Critical Path, Critical Path Drag, and Uniform allocation.
+
+https://facebookresearch.github.io/shapcpm/demo
+
+[![](docs/demo/preview.png)](https://facebookresearch.github.io/shapcpm/demo)
+
 ## Installation
 
 ```bash
