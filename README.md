@@ -90,17 +90,17 @@ The decomposition theorems in `shapcpm` were originally developed for Meta's Con
 For research-style examples, the three case studies in Wang, Wang & Jin (2024) — a 7-activity house build, a 13-activity construction project, and a 22-activity classic from Levy, Thompson & Wiest (1963) — make small, well-known reproductions. 
 
 Worked notebooks live in [`docs/examples/`](docs/examples/):
-- [`wang2024_case1.ipynb`](docs/examples/wang2024_case1.ipynb) — reproduces the 7-activity house-build network from Case 1 of Wang, Wang & Jin (2024), and discusses how `shapcpm`'s makespan attribution relates to the paper's delay attribution.- 
+- [`wang2024_case1.ipynb`](docs/examples/wang2024_case1.ipynb) — reproduces the 7-activity house-build network from Case 1 of Wang, Wang & Jin (2024), and discusses how `shapcpm`'s makespan attribution relates to the paper's delay attribution.
 
 ## Documentation
 
-- **Talk.** Swierc, S. *A Hybrid Approach to Optimizing CI Time at Scale: Marginal and Concurrent Delay Analysis.* CI/CD Industry Workshop (CCIW) at ICST 2026 — how Shapley Values are at Meta. *Slides and video link will be added after the conference.*
+- **Talk.** Swierc, S. *A Hybrid Approach to Optimizing CI Time at Scale: Marginal and Concurrent Delay Analysis.* CI/CD Industry Workshop (CCIW) at ICST 2026 — how Shapley Values are used at Meta. *Slides and video link will be added after the conference.*
 - **Paper.** Wang, H., Wang, W., & Jin, Z. (2024). *Mechanism for allocating delay to constituent activities in project management.* Computers & Industrial Engineering, 197, 110603. [doi.org/10.1016/j.cie.2024.110603](https://doi.org/10.1016/j.cie.2024.110603) — the mathematical foundation.
 
 ## Getting help
 
 - **Bugs and feature requests.** Open a [GitHub issue](https://github.com/facebookresearch/shapcpm/issues). Networks where the approximate solver underperforms are especially welcome — they help us extend the skip-condition set.
-- **Questions and discussion.** [GitHub Discussions](https://github.com/facebookresearch/shapcpm/discussions). [CONFIRM Discussions enabled.]
+- **Questions and discussion.** [GitHub Discussions](https://github.com/facebookresearch/shapcpm/discussions).
 - **Publications using `shapcpm`.** If you publish on top of the library, open an issue tagged `publication` and we will link to it from the README.
 
 ## Citation

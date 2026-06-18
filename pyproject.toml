@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "shapcpm"
-version = "1.0.0"
+version = "1.0.1"
 description = "Efficient Calculation of Shapley Values in Critical Path Method (CPM) Networks for Concurrent Delay Analysis"
 readme = "README.md"
 requires-python = ">=3.10"
